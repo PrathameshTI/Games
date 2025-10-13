@@ -3,24 +3,30 @@
  * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
  */
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+const tintColorLight = '#D9A404';
+const tintColorDark = '#D9A404';
 
 export const Colors = {
   light: {
-    text: '#11181C',
+    text: '#ffffff',
     background: '#fff',
     tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
+    icon: '#BE952E',
+    tabIconDefault: '#BE952E',
     tabIconSelected: tintColorLight,
+    primary: '#D9A404',
+    secondary: '#BE952E',
+    accent: '#000000',
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
+    text: '#ffffff',
+    background: '#0E0E0E',
     tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
+    icon: '#BE952E',
+    tabIconDefault: '#BE952E',
     tabIconSelected: tintColorDark,
+    primary: '#D9A404',
+    secondary: '#BE952E',
+    accent: '#000000',
   },
 };
