@@ -1,0 +1,19 @@
+# Ignore files for EAS Build to reduce upload size
+node_modules/**/*
+.expo/**/*
+.git/**/*
+.vscode/**/*
+*.log
+*.lock
+.DS_Store
+android/app/build/**/*
+android/.gradle/**/*
+ios/Pods/**/*
+ios/build/**/*
+coverage/**/*
+.jest/**/*
+__tests__/**/*
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx

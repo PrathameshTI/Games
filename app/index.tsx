@@ -1,8 +1,9 @@
 import { GameCard } from "@/components/GameCard";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
+import ThemeToggle from "@/src/components/ThemeToggle";
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 
 const games = [
   {
@@ -115,12 +116,18 @@ const games = [
 export default function HomeScreen() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type="title" style={styles.title}>
-        Mini Games
-      </ThemedText>
-      <ThemedText style={styles.subtitle}>
-        Play fun games and earn rewards!
-      </ThemedText>
+      <View style={styles.header}>
+        <ThemedText type="title" style={styles.title}>
+          Mini Games
+        </ThemedText>
+        <ThemedText style={styles.subtitle}>
+          Play fun games and earn rewards!
+        </ThemedText>
+      </View>
+
+      <View style={styles.themeToggleContainer}>
+        <ThemeToggle />
+      </View>
 
       <ScrollView style={styles.gamesList} showsVerticalScrollIndicator={false}>
         {games.map((game) => (
@@ -135,7 +142,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    paddingTop: 60, // Add top padding for status bar
+    paddingTop: 60,
+  },
+  header: {
+    marginBottom: 16,
   },
   title: {
     textAlign: "center",
@@ -143,8 +153,10 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     textAlign: "center",
-    marginBottom: 24,
     opacity: 0.7,
+  },
+  themeToggleContainer: {
+    marginBottom: 24,
   },
   gamesList: {
     flex: 1,

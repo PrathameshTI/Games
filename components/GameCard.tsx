@@ -1,3 +1,4 @@
+import { useTheme } from '@/src/theme/ThemeProvider';
 import * as Haptics from 'expo-haptics';
 import { useRouter } from 'expo-router';
 import React from 'react';
@@ -19,6 +20,7 @@ interface GameCardProps {
 
 export function GameCard({ game }: GameCardProps) {
   const router = useRouter();
+  const { theme } = useTheme();
 
   const handlePress = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -27,10 +29,20 @@ export function GameCard({ game }: GameCardProps) {
 
   return (
     <TouchableOpacity onPress={handlePress} style={styles.container}>
-      <ThemedView style={styles.card}>
+      <ThemedView
+        style={[
+          styles.card,
+          {
+            backgroundColor: theme.colors.card,
+            borderColor: theme.colors.border,
+          },
+        ]}
+      >
         <ThemedText style={styles.icon}>{game.icon}</ThemedText>
         <ThemedView style={styles.content}>
-          <ThemedText type="subtitle" style={styles.title}>{game.title}</ThemedText>
+          <ThemedText type="subtitle" style={styles.title}>
+            {game.title}
+          </ThemedText>
           <ThemedText style={styles.description}>{game.description}</ThemedText>
         </ThemedView>
         <ThemedText style={styles.arrow}>▶</ThemedText>
@@ -48,9 +60,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
     borderRadius: 16,
-    backgroundColor: 'rgba(217, 164, 4, 0.1)',
     borderWidth: 1,
-    borderColor: 'rgba(217, 164, 4, 0.3)',
   },
   icon: {
     fontSize: 32,

@@ -10,19 +10,52 @@
     "preview": {
       "distribution": "internal",
       "android": {
-        "buildType": "apk"
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
       }
     },
     "production": {
       "android": {
-        "buildType": "app-bundle",
-        "gradleCommand": ":app:bundleRelease"
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease",
+        "image": "latest"
       },
       "ios": {
         "buildConfiguration": "Release"
       },
       "env": {
-        "NODE_ENV": "production"
+        "NODE_ENV": "production",
+        "EXPO_USE_FAST_RESOLVER": "1",
+        "EXPO_NO_DOTENV": "1"
+      },
+      "cache": {
+        "key": "production-cache",
+        "paths": [
+          "node_modules",
+          ".expo"
+        ]
+      }
+    },
+    "production-aab": {
+      "extends": "production",
+      "android": {
+        "buildType": "app-bundle",
+        "gradleCommand": ":app:bundleRelease",
+        "image": "latest"
+      }
+    },
+    "production-minimal": {
+      "extends": "production",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease",
+        "image": "latest"
+      },
+      "env": {
+        "NODE_ENV": "production",
+        "EXPO_USE_FAST_RESOLVER": "1",
+        "EXPO_NO_DOTENV": "1",
+        "EXPO_NO_CLIENT_SIDE_ENV": "1"
       }
     }
   },

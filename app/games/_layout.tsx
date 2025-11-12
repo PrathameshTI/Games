@@ -1,8 +1,21 @@
+import { useTheme } from '@/src/theme/ThemeProvider';
 import { Stack } from 'expo-router';
 
 export default function GamesLayout() {
+  const { theme } = useTheme();
+
   return (
-    <Stack>
+    <Stack
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: theme.colors.background,
+        },
+        headerTintColor: theme.colors.text,
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}
+    >
       <Stack.Screen name="spin-wheel" options={{ title: 'Spin Wheel' }} />
       <Stack.Screen name="scratch-card" options={{ title: 'Scratch Card' }} />
       <Stack.Screen name="trivia-quiz" options={{ title: 'Trivia Quiz' }} />
